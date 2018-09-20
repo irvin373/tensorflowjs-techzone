@@ -1,15 +1,19 @@
 # Workshop de aprender React
 
-En este workshop estaremos aprendiendo sobre reactjs explicar un poco como funciona para poder tener todas las bases para poder continuar con sus proyectos nuevos 
+En este workshop estaremos aprendiendo sobre Tensorflowjs explicar un poco como funciona para poder tener todas las bases para poder continuar con sus proyectos nuevos 
 
 ## Módulos
 
 El workshop cuenta con los siguientes módulos:
-1. [Configurando el ambiente](./01-setup): En este módulo se verá cuáles son las herramientas necesarias para poder desarrollar con reactjs.
+1. [Configurando el ambiente](./01-setup): En este modulo veremos todas las herramientas e instalaciones.
 
-2. [Nuestro hola mundo](./02-helloword): En esta parte comenzaremos con un hola mundo para ponernos en ambiente
+2. [Javascript](./02-javascript): En esta seccion repasaremos javascript, con conceptos como: callStack, promesas, async await. Si conoces los terminos puedes saltar el capitulo. 
 
-3. [Uso de los props](./03-props): workshop
+3. [Tensorflowjs](./03-tensorflowjs): En este modulo veremos core concepts de tensorflow js. 
+
+4. [Vision por computadora](./04-computerVision): En este modulo haremos ejemplos simples para entender lo basico de vision por computadora
+
+5. [Transfer Learning](./05-transferLearning): En este modulo realizaremos el proyecto de who is that hero.
 
 ## Feedback
 
@@ -19,7 +23,6 @@ Una vez terminado el workshop, se agradece completar la [encuesta](https://docs.
 
 Creado por:
 - Irvin Cossio Chavalier
-- Irene Argollo Delgadillo 
 
 ## Empecemos!
 Avanzar al [módulo 1](./01-setup)
