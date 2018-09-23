@@ -1,6 +1,6 @@
-# Workshop de aprender React
+# Workshop de Tensorflow js 2018
 
-En este workshop estaremos aprendiendo sobre Tensorflowjs explicar un poco como funciona para poder tener todas las bases para poder continuar con sus proyectos nuevos 
+En este workshop estaremos aprendiendo sobre Tensorflowjs explicar un poco como funciona y algunos ejemplos basicos.
 
 ## Módulos
 
