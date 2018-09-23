@@ -58,4 +58,4 @@ Yarn es una alternativa, a npm si lo tienes instalado podemos usarlo para el cod
     _Sitio de yarn_
 
 ## Próximo modulo
-Avanzar al [módulo 2](../02-javasctipt)
+Avanzar al [módulo 2](../02-javascript)
