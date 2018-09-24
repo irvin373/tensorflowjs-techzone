@@ -1,84 +1,86 @@
-# 2. Entendiendo el proyecto
+# 2. Ejecutando Promises en Javascript
 
-Durante el workshop 
+La primera parte del codelab será iniciar promesas en javascript ya que al usar webGL y algunas operaciones asíncronas en necesario entender cómo funcionan para usar tensorflowjs
 
-## Estructura del proyecto
+## Crear un archivo html js.
 
 lo primero que vamos a hacer es crear un nuevo proyecto y lo haremos de la siguiente manera:
 
-1. Primero crearemos el proyecto y haremos correr
+1. Primero crearemos un nuevo archivo html con la siguiente estructura
 ```
-create-react-app my-app
-cd my-app
-npm start
-yarn start
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Promises in js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Promesas en JS</h1>
+    <script src="main.js"></script>
+</body>
+</html>
 ```
 
-1. Abrir la carpeta con _VS Code_ o la herramienta que prefiera para ver la estructura de archivos.
-
-    ![Estructura de la carpeta del proyecto](./images/structure.jpg)
-
-    _Estructura de la carpeta del proyecto_
-
-1. Para recorrer el proyecto, vamos a arrancar abriendo el archivo _package.json_. Éste archivo es típico de un proyecto hecho en _node.js_ y contiene las dependencias e información del mismo.
-
-1. Notar que en el nodo `scripts`, está configurado el llamado _start_ para hacer correr el servidor local
-    ```json
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
-    },
-    ```
-
-1. Ahora, abrir el archivo _index.js_. Éste contiene el código para insertar el componente principal App.js
-
-1. Primero veremos las importaciones del proyecto.
-
-    ```
-    import React, { Component } from 'react';
-    import logo from './logo.svg';
-    import './App.css';
-    ```
-
-    > **Nota**: donde la mas importante es React.
-
-1. Luego veremos el componente principal.
-
-    ```
-    class App extends Component {
-        render() {
-            return (
-            <div className="App">
-                ...
-            </div>
-            );
-        }
-    }
-    ```
-
-     > **Nota**: Ahora vemos una clase en javascript que extiende de Component un metodo propio es render que retorna el componente que sera el que se muestre.
-
-1. ahora haremos las siguientes cosas:
-    
-    - crear una nueva carpeta `components`.
-    - dentro la carpeta crear un nuevo archivo `HelloWord.js`
-    - y copiaremos el siguiente texto
+2. Lo siguiente sera crear un archivo llamado main.js en javascipt.
 
 ```
-import React, { Component } from 'react'
+function asincrono() {
+    console.log('primera instruccion')
+    setTimeout(() => {
+        console.log('segunda instruccion')
+    }, 1000)
+    console.log('tercera instruccion')
+}
+asincrono()
+```
+ mandamos hacemos correrlo en el navegador.
 
-class HelloWord extends Component {
-  render() {
-    return (
-      <p>Hola {this.props.message}</p>
-    );
-  }
+3. Promesas en Javascipt.
+
+```
+function imprimirPromesa(msg, delay) {
+	return new Promise( (resolve, reject) => {
+		setTimeout(() => {
+			resolve(msg)
+		}, delay)
+	})
 }
 
-export default HelloWord
+function imprimirPromesa() {
+    console.log('primera instruccion')
+    imprimirPromesa('segunda instruccion', delay).then(data => {
+        console.log(data)
+        console.log('tercera instruccion')
+    })
+}
+imprimirPromesa()
 ```
+ mandamos hacemos correrlo en el navegador.
+
+3. Promesas con async y await.
+
+```
+function imprimirPromesa(msg, delay) {
+	return new Promise( (resolve, reject) => {
+		setTimeout(() => {
+			resolve(msg)
+		}, delay)
+	})
+}
+
+async function imprimirPromesa() {
+    console.log('primera instruccion')
+    let msg = await imprimirPromesa('segunda instruccion', delay)
+    console.log(msg)
+    console.log('tercera instruccion')
+}
+imprimirPromesa()
+```
+ mandamos hacemos correrlo en el navegador.
+
+     > **Nota**: async y await son implementacion que aun no todos los navegadores tienen soporte por lo cual la compativilidad, es ayudada por transpiladores o polyfills.
 
 ## Próximo modulo
-Avanzar al [módulo 3](../03-props)
+Avanzar al [módulo 3](../03-tensorflowjs)
