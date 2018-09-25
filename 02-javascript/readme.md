@@ -65,7 +65,7 @@ imprimirPromesa()
 ```
  mandamos hacemos correrlo en el navegador.
 
-3. Promesas con async y await.
+4. Promesas con async y await.
 
 ```
 function imprimirPromesa(msg, delay) {
@@ -96,7 +96,26 @@ imprimirPromesa()
 
      > **Nota**: async y await son implementación que aún no todos los navegadores tienen soporte por lo cual la compatibilidad, es ayudada por transpiradores o polyfills.
 
-4. Correr WebGl 
+5. Para esta parte copiar y ver los resultados en el navegador. 
+
+```
+let obj = {name: 'Kailina'}
+let objFreeze = {name: 'Kailina'}
+Object.freeze(objFreeze)
+console.log(obj, objFreeze)
+obj.edad = 7
+objFreeze.edad = 7
+console.log(obj, objFreeze)
+obj.phone = 79356
+objFreeze.phone = 79356
+console.log(obj, objFreeze)
+delete obj.phone
+delete objFreeze.phone
+console.log(obj, objFreeze)
+```
+ mandamos hacemos correrlo en el navegador.
+
+6. Correr WebGl 
 
 > a continuación mostraremos un código ejemplo para dibujar un canvas con fondo oscuro usando GPU de la máquina. ya que tensorflow js usa el GPU para varias operaciones matemáticas
 ```
