@@ -1,54 +1,74 @@
-# 3. Conceptos básicos
+# 3. Conceptos básicos Tensorflow
 
 
-
-Ahora trabajaremos sobre un proyecto base para agregar funcionalidad en medio de todo el camino
-[descarga el proyecto base](https://drive.google.com/open?id=1UbyiQm1uzb6YfQHWw8FaBeezZC-kLBQ3)
-## Props
-
-Las propiedades se pasan desde un componente padre hacia sus hijos. Donde el hijo podra acceder a estas mediante `this.props` que es un objeto inmutable.
-
-### Button
-
-tratemos de agregar una propiedad al boton reemplazando `soy un boton` por  `{this.props.option}`
-
-### Board Game
-
-ahora haremos lo siguiente en el archivo `Board.js` dentro de la funcion render haremos: `let {questions, header, answer} = this.props` lo cual asignaremos las propiedades a variables para poder usarlas donde `header` tomara lugar de `pregunta` y luego copien el siguiente codigo
-
+## Predecir funcion lineal
 ```
-{questions.map(item =>
-  <ContentBtn key={item.id}
-  id={item.id}
-  answer={answer} option={item.option}
-  />)
+<!DOCTYPE>
+<html>
+<head></head>
+<body></body>
+</html>
+```
+
+ > Ahora si usaremos tensorflow para predecir una funcion lineal `Y = 2X - 1` y para comparar las predicciones usaremos la funcion original en javascript `const funcY = (item) => item * 2 - 1` Estos son los datos con los cuales comenzaremos la funcion 
+
+>`const xs = tf.tensor2d([-1, 0, 1, 2, 3, 4], [6, 1])`
+>`const ys = tf.tensor2d([-3, -1, 1, 3, 5, 7], [6, 1])`
+
+### codigo para predecir la ecuacion
+```
+const funcY = (item) => item * 2 - 1
+
+async function learnLinear () {
+  const model = tf.sequential()
+  model.add(tf.layers.dense({units: 1, inputShape: [1]}))
+  model.compile({
+    loss: 'meanSquaredError',
+    optimizer: 'sgd'
+  })
+
+  const xs = tf.tensor2d([-1, 0, 1, 2, 3, 4], [6, 1])
+  const ys = tf.tensor2d([-3, -1, 1, 3, 5, 7], [6, 1])
+
+  await model.fit(xs, ys, {epochs: 500})
+  let toPredict = [2, 10, 12, 5, 7]
+  let output = document.getElementById('output_field')
+  for (let item of toPredict) {
+    let result = model.predict(tf.tensor2d([item], [1, 1]))
+    console.log(`${item} -> ${result}`)
+    output.innerHTML += `<p> valor ${item} - ${result} - valor Real ${funcY(item)}</p>`
+  }
 }
+learnLinear()
 ```
 
-donde `questions` es un Array y tenemos que convertirlo en componentes botones es por eso que iteramos con una funcion que mapea a componente `ContentBtn`
+## XOR
 
-### State
+![XOR](./images/xor.png "XOR")
 
-Ahora haremos los cambios que pueden ocurrir durante el live circle del proyecto. Recodar que el estado es de solo lectura si quiere hacerse un cambio sobre el mismo es mediante la funcion `setState`
+    _XOR_
 
-en el `boardjs` haremos lo siguiente:
 
-- crearemos el estado inicial del componente asi que 
 ```
-this.state = {
-  percent: 100,
-  noTime: false
+async function predictOutput () {
+  const model = tf.sequential()
+  model.add(tf.layers.dense({ units: 8, inputShape: 2, activation: 'tanh' }))
+  model.add(tf.layers.dense({ units: 1, activation: 'sigmoid' }))
+  model.compile({ optimizer: 'sgd', loss: 'binaryCrossentropy', lr: 0.1 })
+  // Creating dataset
+  const xs = tf.tensor2d([[0, 0], [0, 1], [1, 0], [1, 1]])
+  xs.print()
+  const ys = tf.tensor2d([[0], [1], [1], [0]])
+  ys.print()
+  // Train the model
+  await model.fit(xs, ys, {
+    batchSize: 1,
+    epochs: 5000
+  })
+  document.getElementById('output').innerText = model.predict(xs)
 }
+predictOutput()
 ```
-dentro del constructor.
 
-- dentro de la funcion render agregaremos `let {percent, noTime} = this.state`  y tambien `let time = this.contador(percent)` - `this.runProgess()` para crear un contador de tiempo para terminar la trivia agregaremos un progress bar `<Progress percent={percent} indicating size='large' />` en el retorno de la funcion y a ver el resultado
-y ahora agregamos `<p style={{fontSize: 25}}>{time}</p>` para mostrar un contador de tiempo.
-
-## Events
-
-Ahora pasaremos funciones para que puedan actualizar los estados.
-
-## Gracias por asistir al workshop
-
-Una vez terminado el workshop, se agradece completar la [encuesta](https://docs.google.com/forms/d/e/1FAIpQLSenK_TDn54NEv65PKyoGr9L4Us7x8y1Wdwzt7cw6BkR5HIBqA/viewform?usp=pp_url&entry.1506216363) para poder mejorarlo. También se aceptan [issues]
+## Próximo módulo
+Avanzar al [módulo 4](../04-computerVision)
