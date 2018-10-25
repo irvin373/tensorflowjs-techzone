@@ -12,6 +12,11 @@
 </html>
 ```
 
+## Tensor
+
+![Tensor](./images/tensors.jpeg "Tensor")
+  _Tensor_
+
  > Ahora si usaremos tensorflow para predecir una funcion lineal `Y = 2X - 1` y para comparar las predicciones usaremos la funcion original en javascript `const funcY = (item) => item * 2 - 1` Estos son los datos con los cuales comenzaremos la funcion 
 
 >`const xs = tf.tensor2d([-1, 0, 1, 2, 3, 4], [6, 1])`
