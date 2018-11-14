@@ -7,8 +7,9 @@
 <html>
 <head></head>
 <body>
- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.0"> </script>
- <script src="main.js"></script>
+  <div id="output_field"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.0"> </script>
+  <script src="main.js"></script>
 </body>
 </html>
 ```
