@@ -74,7 +74,7 @@ async function predictOutput () {
     batchSize: 1,
     epochs: 5000
   })
-  document.getElementById('output').innerText = model.predict(xs)
+  document.getElementById('output_field').innerText = model.predict(xs)
 }
 predictOutput()
 ```
