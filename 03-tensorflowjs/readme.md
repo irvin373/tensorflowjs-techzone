@@ -39,7 +39,14 @@ async function learnLinear () {
   const xs = tf.tensor2d([-1, 0, 1, 2, 3, 4], [6, 1])
   const ys = tf.tensor2d([-3, -1, 1, 3, 5, 7], [6, 1])
 
-  await model.fit(xs, ys, {epochs: 500})
+  await model.fit(xs, ys, {
+    epochs: 500,
+    callbacks: {
+      onEpochEnd: async (epoch, logs) => {
+        console.log(epoch, logs)
+      },
+    }
+  })
   let toPredict = [2, 10, 12, 5, 7]
   let output = document.getElementById('output_field')
   for (let item of toPredict) {
@@ -72,7 +79,12 @@ async function predictOutput () {
   // Train the model
   await model.fit(xs, ys, {
     batchSize: 1,
-    epochs: 5000
+    epochs: 5000,
+    callbacks: {
+      onEpochEnd: async (epoch, logs) => {
+        console.log(epoch, logs)
+      },
+    }
   })
   document.getElementById('output_field').innerText = model.predict(xs)
 }
