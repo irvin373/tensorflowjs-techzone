@@ -29,33 +29,5 @@ Para editar el código, se va a aprovechar _Visual Studio Code_, en especial por
 
     _Sitio de Visual Studio Code_
 
-1. Una vez descargado, seguir los pasos de la instalación.
-
-
-## Node.js & npm
-
-Necesitaremos un usar librerias y funciones como prender un servidor con js. asi que es un requisito usar [node.js](https://nodejs.org) y [npm](https://www.npmjs.com).
-
-1. Navegar al sitio de descargas de _node.js_: [https://nodejs.org/es/download/](https://nodejs.org/es/download/).
-
-    ![Sitio de node.js](./images/nodejs.jpg "Sitio de node.js")
-
-    _Sitio de node.js_
-
-1. Seleccionar la versión _LTS (Long term support)_ y la plataforma correspondiente.
-
-1. Una vez descargado, seguir los pasos de la instalación.
-
-
-## yarn
-
-Yarn es una alternativa, a npm si lo tienes instalado podemos usarlo para el codelab y si no lo tienes, pues te recomiendo darle una oportunidad, aunque no es indispensable si tienes npm
-
-1. Navegar al sitio de descargas de _yarn_: [https://yarnpkg.com/en/docs/install](https://yarnpkg.com/en/docs/install).
-
-    ![Sitio de node.js](./images/yarn.png "Sitio de yarn")
-
-    _Sitio de yarn_
-
 ## Próximo modulo
 Avanzar al [módulo 2](../02-javascript)
